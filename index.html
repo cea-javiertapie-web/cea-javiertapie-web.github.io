@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C.E.A-JavierTapie</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #062f5a;
+      color: #ffffff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img {
+      height: 70px;
+      cursor: pointer;
+    }
+    header h1 {
+      font-size: 1.2rem;
+    }
+    nav {
+      position: relative;
+    }
+    .menu-button {
+      background-color: #062f5a;
+      color: #ffffff;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .menu-list {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background-color: #ffffff;
+      color: black;
+      border: 1px solid #ccc;
+      list-style: none;
+      padding: 0.5rem;
+    }
+    .menu-list li {
+      margin: 0.5rem 0;
+    }
+    .menu-list li a {
+      text-decoration: none;
+      color: #062f5a;
+      font-weight: bold;
+    }
+    .menu-list.show {
+      display: block;
+    }
+    section {
+      padding: 2rem;
+    }
+    #inicio {
+      background-color: #ffffff;
+      text-align: center;
+    }
+    .foto-informe {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .foto-informe img {
+      max-width: 800px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+    .foto-informe p {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: justify;
+    }
+    #contactos {
+      background-color: #eef5ff;
+      text-align: center;
+    }
+    footer {
+      background-color: #062f5a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <a href="#inicio"><img src="logocea3.png" alt="Logo Albiceleste"></a>
+      <h1>C.E.A - Javier Tapie</h1>
+    </div>
+    <nav>
+      <button class="menu-button" onclick="toggleMenu()">Menú</button>
+      <ul class="menu-list" id="menuList">
+        <li><a href="cursos.html">CURSOS</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="inicio">
+    <h2>Últimas novedades del colegio</h2>
+    <p>📢 Entrega de insumos el dia 14/06/25</p>
+
+    <div class="foto-informe">
+      <img src="Entrega de insumos.jpg" alt="Entrega de insumos laboratorio de química">
+      <p>
+        El Centro de Estudiantes se complace en entregar estos insumos de química para nuestros laboratorios, adquiridos gracias a la exitosa rifa del Día de Pascua que organizamos.
+        <br><br>
+        Queremos agradecer a todos los que participaron y apoyaron esta iniciativa. Su colaboración ha hecho posible que podamos mejorar la calidad de la educación y el aprendizaje práctico en nuestra escuela.
+        <br><br>
+        Esperamos que estos recursos sean de gran utilidad para todos y nos permitan seguir creciendo y aprendiendo juntos.
+        <br><br>
+        ¡Gracias por su apoyo y confianza!
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Centro de Estudiantes ALBICELESTE - Todos los derechos reservados</p>
+    <p>Contacto: centroestudiantes@colegio.edu.ar | IG: @centro.albiceleste | FB: Centro Albiceleste</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menuList');
+      menu.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

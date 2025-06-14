@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>C.E.A-JavierTapie</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+
+      /* Imagen de fondo */
+      background-image: url(ESTN1.jpg); /* poné aquí la ruta dees tu imagen */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      
+      /* Para mejorar legibilidad si la imagen es muy clara */
+      color: #fff;
+    }
+    header {
+      background-color: #062f5acc; /* fondo semi-transparente para destacar */
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img {
+      height: 70px;
+    }
+    header h1 {
+      font-size: 1.2rem;
+    }
+    nav {
+      position: relative;
+    }
+    .menu-button {
+      background-color: rgba(6, 47, 90, 0.8);
+      color: white;
+      border: none;
+      padding: 1.5rem 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .menu-list {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background-color: white;
+      color: black;
+      border: 1px solid #ccc;
+      list-style: none;
+      padding: 0.5rem;
+    }
+    .menu-list li {
+      margin: 1rem 0;
+    }
+    .menu-list li a {
+      text-decoration: none;
+      color: #062f5a;
+      font-weight: bold;
+    }
+    .menu-list.show {
+      display: block;
+    }
+    section {
+      padding: 2rem;
+      text-align: center;
+      background-color: rgba(248, 249, 250, 0.9); /* fondo blanco semi-transparente para lectura */
+      border-radius: 50px;
+      max-width: 1000px;
+      margin: 2rem auto;
+      color: #000; /* texto negro para contraste sobre fondo claro */
+    }
+    .drive-container {
+      max-width: 800px;
+      margin: 1rem auto;
+      padding: 1rem;
+      border: 1px solid #062f5acc;
+      border-radius: 10px;
+      background-color: #ffffff;
+    }
+    .drive-container iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <img src="logocea3.png" alt="Logo Albiceleste" />
+      <h1>C.E.A - JavierTapie</h1>
+    </div>
+    <nav>
+      <button class="menu-button" onclick="toggleMenu()">Menú</button>
+      <ul class="menu-list" id="menuList">
+        <li><a href="index.html">Inicio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="cursos">
+    <h2>BASICA Y MODALIDADES</h2>
+    <p>Accedé a los materiales y documentos de los cursos desde estas carpetas:</p>
+    <div class="drive-container">
+      <a href="https://drive.google.com/drive/folders/1ljYCqx0Uvl6J6w8NBFesJQFjRIzpqO2h?usp=sharing" target="_blank">Ver carpeta en Google Drive</a>
+    </div>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menuList');
+      menu.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
