@@ -3,126 +3,238 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>C.E.A-JavierTapie</title>
+  <title>C.E.A - Javier Tapie</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      line-height: 1.6;
-
-      /* Imagen de fondo */
-      background-image: url(ESTN1.jpg); /* poné aquí la ruta dees tu imagen */
+      background-image: url(ESTN1.jpg);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
-      
-      /* Para mejorar legibilidad si la imagen es muy clara */
       color: #fff;
+      overflow-x: hidden;
     }
+
     header {
-      background-color: #062f5acc; /* fondo semi-transparente para destacar */
+      background-color: #062f5a;
       color: white;
       padding: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+      z-index: 1100;
     }
-    header img {
-      height: 70px;
+
+    header div.logo-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
+
+    header img#logo {
+      height: 60px;
+      cursor: pointer;
+      transition: transform 0.6s ease;
+    }
+
+    header img#logo.rotate {
+      transform: rotate(720deg);
+    }
+
     header h1 {
       font-size: 1.2rem;
     }
-    nav {
+
+    /* Botón hamburguesa */
+    .hamburger {
+      width: 30px;
+      height: 22px;
       position: relative;
-    }
-    .menu-button {
-      background-color: rgba(6, 47, 90, 0.8);
-      color: white;
-      border: none;
-      padding: 1.5rem 1rem;
       cursor: pointer;
-      font-weight: bold;
+      z-index: 1300;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .menu-list {
-      display: none;
-      position: absolute;
-      right: 0;
-      top: 100%;
-      background-color: white;
-      color: black;
-      border: 1px solid #ccc;
-      list-style: none;
-      padding: 0.5rem;
+
+    .hamburger span {
+      height: 4px;
+      background: white;
+      border-radius: 2px;
+      transition: 0.3s ease;
     }
-    .menu-list li {
-      margin: 1rem 0;
+
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
     }
-    .menu-list li a {
-      text-decoration: none;
-      color: #062f5a;
-      font-weight: bold;
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
     }
-    .menu-list.show {
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Sidebar lateral */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #062f5a;
+      color: white;
+      transition: left 0.3s ease;
+      z-index: 1200;
+      padding-top: 0;
+      padding-top: 2rem;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar a {
       display: block;
+      padding: 1rem 1.5rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 1px solid #08488d;
+      transition: background 0.2s;
     }
+
+    .sidebar a:hover {
+      background-color: #08488d;
+    }
+
     section {
       padding: 2rem;
       text-align: center;
-      background-color: rgba(248, 249, 250, 0.9); /* fondo blanco semi-transparente para lectura */
+      background-color: rgba(248, 249, 250, 0.9);
       border-radius: 50px;
       max-width: 1000px;
       margin: 2rem auto;
-      color: #000; /* texto negro para contraste sobre fondo claro */
+      color: #000;
     }
+
     .drive-container {
       max-width: 800px;
       margin: 1rem auto;
       padding: 1rem;
-      border: 1px solid #062f5acc;
+      border: 1px solid #062f5a;
       border-radius: 10px;
       background-color: #ffffff;
     }
-    .drive-container iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-      border-radius: 5px;
+
+    .drive-container a {
+      color: #062f5a;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .drive-container a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1rem;
+      }
+      header img#logo {
+        height: 50px;
+      }
+      .sidebar {
+        width: 220px;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div style="display: flex; align-items: center; gap: 1rem;">
-      <img src="logocea3.png" alt="Logo Albiceleste" />
-      <h1>C.E.A - JavierTapie</h1>
+    <div class="logo-title">
+      <a href="inicio.html" aria-label="Inicio">
+        <img src="logocea3.png" alt="Logo Albiceleste" id="logo" />
+      </a>
+      <h1>C.E.A - Javier Tapie</h1>
     </div>
-    <nav>
-      <button class="menu-button" onclick="toggleMenu()">Menú</button>
-      <ul class="menu-list" id="menuList">
-        <li><a href="index.html">Inicio</a></li>
-      </ul>
-    </nav>
+
+    <div class="hamburger" id="hamburger" aria-label="Abrir menú" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </header>
 
-  <section id="cursos">
-    <h2>BASICA Y MODALIDADES</h2>
+  <nav class="sidebar" id="sidebar" aria-hidden="true">
+    <a href="inicio.html" onclick="closeMenu()">Inicio</a>
+  </nav>
+
+  <section id="inicio">
+    <h2>BÁSICA Y MODALIDADES</h2>
     <p>Accedé a los materiales y documentos de los cursos desde estas carpetas:</p>
     <div class="drive-container">
-      <a href="https://drive.google.com/drive/folders/1ljYCqx0Uvl6J6w8NBFesJQFjRIzpqO2h?usp=sharing" target="_blank">Ver carpeta en Google Drive</a>
+      <a href="https://drive.google.com/drive/folders/1ljYCqx0Uvl6J6w8NBFesJQFjRIzpqO2h?usp=sharing" target="_blank" rel="noopener noreferrer">
+        Ver carpeta en Google Drive
+      </a>
     </div>
   </section>
 
   <script>
+    const sidebar = document.getElementById('sidebar');
+    const hamburger = document.getElementById('hamburger');
+    const logo = document.getElementById('logo');
+
     function toggleMenu() {
-      const menu = document.getElementById('menuList');
-      menu.classList.toggle('show');
+      sidebar.classList.toggle('open');
+      hamburger.classList.toggle('open');
+      const isOpen = sidebar.classList.contains('open');
+      sidebar.setAttribute('aria-hidden', !isOpen);
     }
+
+    function closeMenu() {
+      sidebar.classList.remove('open');
+      hamburger.classList.remove('open');
+      sidebar.setAttribute('aria-hidden', 'true');
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+
+    hamburger.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
+
+    sidebar.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    logo.addEventListener('click', e => {
+      e.preventDefault();
+      logo.classList.add('rotate');
+      setTimeout(() => {
+        logo.classList.remove('rotate');
+        location.href = "inicio.html";
+      }, 600);
+    });
   </script>
+
 </body>
 </html>
+
